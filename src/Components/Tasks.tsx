@@ -15,10 +15,10 @@ const Tasks: React.FC = () => {
     { id: 4, title: "Join Miner Announcements", votePower: 200, claimed: false },
   ]);
 
-  const [completedTasks, setCompletedTasks] = useState<string[]>([
+  const completedTasks = useState<string[]>([
     "Play Punchline and Finish Tasks",
     "Join Jana Crypto Queen Channel"
-  ]);
+  ])[0];
 
   const handleClaim = (taskId: number) => {
     setTasks(tasks.map(task => 
@@ -27,7 +27,7 @@ const Tasks: React.FC = () => {
   };
 
   return (
-    <div className="blue-bg min-h-screen w-full max-w-md mx-auto p-4">
+    <div className="blue-bg min-h-screen w-full max-w-md mx-auto p-4 pb-16">
       <div className="text-center mb-6 flex flex-col items-center justify-center">
         <h2 className="karmatic-text text-white text-lg">
           MEME. VOTE. EARN!

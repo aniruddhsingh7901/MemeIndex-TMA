@@ -1,5 +1,4 @@
-import React from "react";
-import Header from "./Header"
+
 const rankings = [
   { rank: 1, name: "#DOGE", score: 1000, trend: "up" },
   { rank: 2, name: "#WIF", score: 950, trend: "down" },

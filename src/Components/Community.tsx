@@ -11,7 +11,7 @@ const Community = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center justify-center max-w-md mx-auto h-auto blue-bg pb-14">
+    <div className="w-full flex flex-col items-center justify-center max-w-md mx-auto h-auto blue-bg pb-16 ">
       {/* Navigation Header */}
       <div className="bg-[#006CFF] border border-[#187DFF] w-[90%] rounded-xl">
       <div className="flex justify-between items-center p-4">
