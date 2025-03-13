@@ -4,6 +4,7 @@ import Header from "./Components/Header"
 import NavBar from "./Components/Navbar"
 import Rank from "./Components/Rank"
 import Tasks from "./Components/Tasks"
+import Profile from "./Components/Profile"
 import "./index.css"
 function App() {
   const [activeTab, setActiveTab] = useState<string>("Home");
@@ -15,6 +16,7 @@ function App() {
       {activeTab === "Rank" && <Rank />}
       {activeTab === "Community" && <Community />}
       {activeTab === "Tasks" && <Tasks />}
+      {activeTab === "Profile" && <Profile />}
       <NavBar activeTab={activeTab} setActiveTab={setActiveTab}/>
     </div>
     </>
