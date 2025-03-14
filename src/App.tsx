@@ -6,6 +6,7 @@ import Rank from "./Components/Rank"
 import Tasks from "./Components/Tasks"
 import Profile from "./Components/Profile"
 import "./index.css"
+import Home from "./Components/Home"
 function App() {
   const [activeTab, setActiveTab] = useState<string>("Home");
   return (
@@ -13,6 +14,7 @@ function App() {
     <div className="bg-blue-500">
       {/* <Community/> */}
       <Header/>
+      {activeTab === "Home" && <Home />}
       {activeTab === "Rank" && <Rank />}
       {activeTab === "Community" && <Community />}
       {activeTab === "Tasks" && <Tasks />}

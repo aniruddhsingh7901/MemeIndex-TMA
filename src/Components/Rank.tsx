@@ -1,3 +1,5 @@
+import { MdArrowOutward } from "react-icons/md";
+import { FiArrowDownRight } from "react-icons/fi";
 
 const rankings = [
   { rank: 1, name: "#DOGE", score: 1000, trend: "up" },
@@ -13,32 +15,69 @@ const rankings = [
 
 const MemeIndexRanking = () => {
   return (
-    <div className="blue-bg pt-4 min-h-screen flex flex-col items-center text-white pb-14">
-
-      <h2 className=" karmatic-text text-xl">
+    <div className="w-full min-h-screen flex flex-col items-center text-white pb-14" style={{ backgroundColor: "#0065FF" }}>
+      {/* Header */}
+      <div className="w-full bg-blue-800 py-4 mb-4 flex justify-center">
+        <h1 className="text-2xl font-bold text-white">MEMEINDEX BATTLE ARENA</h1>
+      </div>
+      
+      {/* Season Title */}
+      <h2 className="text-xl font-bold mb-6 bg-blue-500 px-8 py-2 rounded-lg">
         SEASON 1 RANK
       </h2>
-
-
-      <div className="w-full text-sm flex flex-col items-center justify-center gap-[1rem] max-w-md bg-transparent rounded-lg p-4 shadow-lg ">
-      <div className="grid grid-cols-4 w-full justify-center items-center bg-transparent text-white font-semibold rounded-lg border border-[#2181FF] overflow-hidden">
-        <div className="p-[0.5] m-2 flex justify-center items-center w-full border-r border-[#2181FF]">Rank</div>
-        <div className="p-[0.5] m-2 flex justify-center items-center w-full border-r border-[#2181FF]">Name</div>
-        <div className="p-[0.5] m-2 flex justify-center items-center w-full border-r border-[#2181FF]">Score</div>
-        <div className="p-[0.5] m-2 flex justify-center items-center">Vote</div>
-      </div>
-        {rankings.map((item) => (
-          <div key={item.rank} className="grid grid-cols-4 bg-transparent text-white font-semibold rounded-lg border border-[#2181FF] w-full overflow-hidden">
-            <div className="p-[0.5] m-2 flex justify-center items-center flex-1 w-full  border-r border-[#2181FF]">#{item.rank}</div>
-            <div className="p-[0.5] m-2 flex justify-center items-center flex-1 w-full border-r border-[#2181FF]">{item.name}</div>
-            <span className={item.trend === "up" ? "p-[0.5] m-2 flex justify-center items-center w-full flex-1 border-r border-[#2181FF] text-green-400" : "p-[0.5] m-2 flex justify-center items-center flex-1 text-left border-r border-[#2181FF] text-red-400"}>
-              {item.score} {item.trend === "up" ? "⬆" : "⬇"}
-            </span>
-            <div className="p-[0.5] m-2 flex justify-center items-center w-full">
-            <button className="bg-[#F38B24] text-white px-2 py-1 rounded-lg hover:bg-[#e7b481]">To elect</button>
-            </div>
+      
+      {/* Table Container - Full Width */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
+        <div className="w-full text-sm flex flex-col items-center justify-center gap-4 bg-transparent rounded-lg">
+          {/* Table Header */}
+          <div className="grid grid-cols-9 w-full text-white font-semibold rounded-lg border border-[#2181FF] overflow-hidden bg-gradient-to-t from-[#0140FF] via-[#0059FF] to-[#0065FF] shadow-sm">
+            <div className="p-3 flex justify-center items-center border-r border-[#2181FF] col-span-2">Rank</div>
+            <div className="p-2 flex justify-center items-center border-r border-[#2181FF] col-span-2">Name</div>
+            <div className="p-2 flex justify-center items-center border-r border-[#2181FF] col-span-2">Score</div>
+            <div className="p-2 flex justify-center items-center col-span-3">Vote</div>
           </div>
-        ))}
+          
+          {/* Table Rows */}
+          {rankings.map((item) => (
+            <div key={item.rank} className="grid grid-cols-9 bg-transparent text-white font-semibold rounded-lg border border-[#2181FF] w-full overflow-hidden">
+              <div className="p-3 flex justify-center items-center border-r border-[#2181FF] col-span-2">#{item.rank}</div>
+              <div className="p-2 flex justify-center items-center border-r border-[#2181FF] col-span-2">{item.name}</div>
+              <div className={`p-2 flex justify-center items-center border-r border-[#2181FF] col-span-2 ${item.trend === "up" ? "text-green-400" : "text-red-600"}`}>
+                <span className="text-white mr-1">{item.score}</span> 
+                {item.trend === "up" ? <MdArrowOutward /> : <FiArrowDownRight />}
+              </div>
+              <div className="p-2 flex justify-center items-center col-span-3">
+                <button className="bg-gradient-to-b from-[#F78F27] to-[#be6812] text-white px-3 py-1 rounded-lg transition-all duration-300 hover:from-[#F78F27] hover:to-[#92500e]">
+                  To elect
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Navigation Footer */}
+      <div className="fixed bottom-0 w-full bg-blue-900 flex justify-around items-center py-3">
+        <div className="flex flex-col items-center">
+          <span className="text-2xl">🏠</span>
+          <span className="text-xs">Home</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <span className="text-2xl">📊</span>
+          <span className="text-xs">Rank</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <span className="text-2xl">📋</span>
+          <span className="text-xs">Tasks</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <span className="text-2xl">👥</span>
+          <span className="text-xs">Community</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <span className="text-2xl">👤</span>
+          <span className="text-xs">Profile</span>
+        </div>
       </div>
     </div>
   );
