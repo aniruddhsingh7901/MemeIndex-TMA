@@ -11,7 +11,7 @@ function App() {
   const [activeTab, setActiveTab] = useState<string>("Home");
   return (
     <>
-    <div className="bg-blue-500">
+    <div className="bg-blue-500 w-full">
       {/* <Community/> */}
       <Header/>
       {activeTab === "Home" && <Home />}
