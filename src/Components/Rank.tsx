@@ -15,7 +15,7 @@ const rankings = [
 
 const MemeIndexRanking = () => {
   return (
-    <div className="blue-bg pt-4 min-h-screen w-full flex flex-col items-center text-white pb-14">
+    <div className="blue-bg pt-4 min-h-screen min-w-full flex flex-col items-center text-white pb-14">
       <h2 className=" karmatic-text text-lg">
         SEASON 1 RANK
       </h2>
