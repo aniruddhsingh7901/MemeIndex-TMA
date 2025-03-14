@@ -1,12 +1,12 @@
 import { useState } from "react"
-import Community from "./Components/Community"
+import Community from "./pages/Community"
 import Header from "./Components/Header"
 import NavBar from "./Components/Navbar"
-import Rank from "./Components/Rank"
-import Tasks from "./Components/Tasks"
-import Profile from "./Components/Profile"
+import Rank from "./pages/Rank"
+import Tasks from "./pages/Tasks"
+import Profile from "./pages/Profile"
 import "./index.css"
-import Home from "./Components/Home"
+import Home from "./pages/Home"
 function App() {
   const [activeTab, setActiveTab] = useState<string>("Home");
   return (
