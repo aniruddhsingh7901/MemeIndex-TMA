@@ -1,3 +1,4 @@
+import { TonConnectButton, useTonAddress } from '@tonconnect/ui-react';
 import React, { useState } from 'react';
 
 interface ProfileInfo {
@@ -7,9 +8,10 @@ interface ProfileInfo {
 }
 
 const Profile: React.FC = () => {
-
+  const userFriendlyAddress = useTonAddress();
+  const rawAddress = useTonAddress(false);
   const [profileInfo, _] = useState<ProfileInfo>({ voteBalance: 0, seasonWon: 3, income: 234 });
-
+  console.log(userFriendlyAddress, rawAddress);
   return (
 
    <div className="blue-bg min-h-screen w-full max-w-md mx-auto p-4 pb-16">
@@ -34,7 +36,7 @@ const Profile: React.FC = () => {
 
          <div className="text-center flex justify-between">
            <div className="text-md font-bold">Income</div>
-           <div className="text-sm ">{profileInfo.income} $MIDAO</div>
+           <div className="text-sm ">{profileInfo.income} $INDEX</div>
          </div>
 
        </div>
@@ -42,10 +44,11 @@ const Profile: React.FC = () => {
 
       <h2 className="karmatic-text text-white text-center text-2xl mb-4">WALLET</h2>
         
-      <div className="mt-4 text-center w-full">
-        <button className="w-full bg-linear-to-b from-[#D97410] to-[#be6812] hover:bg-[#ffbf80] text-white py-2 rounded-lg text-lg font-bold">
+      <div className="mt-4 text-center w-full flex justify-center items-center">
+        {/* <button className="w-full bg-linear-to-b from-[#D97410] to-[#be6812] hover:bg-[#ffbf80] text-white py-2 rounded-lg text-lg font-bold">
           Connect wallet
-        </button>
+        </button> */}
+           <TonConnectButton />
       </div>
 
     </div>
