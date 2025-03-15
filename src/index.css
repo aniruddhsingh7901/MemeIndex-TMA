@@ -86,3 +86,10 @@ button:focus-visible {
   background-color:#006FFF;
 }
 
+.dark-blue-bg{
+  background-color: #006CFF;
+}
+
+.custom-dashed {
+  border-bottom: 4px dashed transparent;
+}

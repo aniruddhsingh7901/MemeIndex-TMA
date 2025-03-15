@@ -32,7 +32,7 @@ const Community = () => {
       </div>
 
       {/* Details Card */}
-      <div className="mx-4 rounded-2xl" style={{backgroundColor: '#006CFF'}}>
+      <div className="mx-4 rounded-2xl dark-blue-bg">
         <div className=" flex flex-col items-center justify-center w-full p-2 text-white">
           <div className="flex gap-[1.5rem] items-center justify-center mb-4 w-[90%]">
             <div className="text-center">
