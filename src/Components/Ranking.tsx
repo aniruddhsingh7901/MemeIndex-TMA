@@ -1,22 +1,25 @@
 import { MdArrowOutward } from "react-icons/md";
 import { FiArrowDownRight } from "react-icons/fi";
-
-const rankings = [
-  { rank: 1, name: "#DOGE", score: 1000, trend: "up" },
-  { rank: 2, name: "#WIF", score: 950, trend: "down" },
-  { rank: 3, name: "#FLOKI", score: 900, trend: "up" },
-  { rank: 4, name: "#PEPE", score: 850, trend: "up" },
-  { rank: 5, name: "#SHIB", score: 800, trend: "down" },
-  { rank: 6, name: "#FLOKI", score: 750, trend: "up" },
-  { rank: 7, name: "#WIF", score: 700, trend: "down" },
-  { rank: 8, name: "#SHIB", score: 650, trend: "up" },
-  { rank: 9, name: "#FLOKI", score: 600, trend: "down" },
-];
-
-const Ranking = () => {
+const Ranking = ({activeTab,setActiveTab}:{activeTab:string,setActiveTab:React.Dispatch<React.SetStateAction<string>>}) => {
+  const rankings = (activeTab=="Rank")?[
+    { rank: 1, name: "#DOGE", score: 1000, trend: "up" },
+    { rank: 2, name: "#WIF", score: 950, trend: "down" },
+    { rank: 3, name: "#FLOKI", score: 900, trend: "up" },
+    { rank: 4, name: "#PEPE", score: 850, trend: "up" },
+    { rank: 5, name: "#SHIB", score: 800, trend: "down" },
+    { rank: 6, name: "#FLOKI", score: 750, trend: "up" },
+    { rank: 7, name: "#WIF", score: 700, trend: "down" },
+    { rank: 8, name: "#SHIB", score: 650, trend: "up" },
+    { rank: 9, name: "#FLOKI", score: 600, trend: "down" },
+  ]: [
+    { rank: 1, name: "#DOGE", score: 1000, trend: "up" },
+    { rank: 2, name: "#WIF", score: 950, trend: "down" },
+    { rank: 3, name: "#FLOKI", score: 900, trend: "up" },
+    { rank: 4, name: "#PEPE", score: 850, trend: "up" }
+  ]
   return (
-    <div className="blue-bg w-[100%] flex flex-col items-center text-white">
-      <div className="w-full text-sm flex flex-col items-center justify-center gap-2 bg-transparent rounded-lg p-4 shadow-lg">
+    <div className="blue-bg min-w-full flex flex-col items-center text-white pb-3">
+      <div className="w-full text-sm flex flex-col items-center justify-center gap-2 max-w-md bg-transparent rounded-lg p-4">
           <div className="grid grid-cols-9 w-full text-white font-semibold rounded-lg border border-[#2181FF] overflow-hidden bg-gradient-to-t from-[#0140FF] via-[#0059FF] to-[#0065FF] shadow-sm">
                 <div className="p-3 flex justify-center items-center border-r border-[#2181FF] col-span-2 pl-2">Rank</div>
                 <div className="p-2 flex justify-center items-center border-r border-[#2181FF] col-span-2">Name</div>
@@ -39,6 +42,11 @@ const Ranking = () => {
                   </div>
                 </div>
           ))}
+          {(activeTab=="Home") && 
+          <button className="w-full text-xs bg-linear-to-b from-[#D97410] to-[#be6812] hover:bg-[#ffbf80] text-white py-3 rounded-lg font-bold" onClick={()=>setActiveTab('Rank')}>
+          View Full Rankings
+      </button>
+          }
       </div>
     </div>
   );

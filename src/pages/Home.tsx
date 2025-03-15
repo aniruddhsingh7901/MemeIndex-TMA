@@ -1,7 +1,7 @@
 import Ranking from "../Components/Ranking"
 import { useState,useEffect } from "react";
 import Updates from "../Components/Updates";
-const Home=()=>{
+const Home=({activeTab,setActiveTab}:{activeTab:string,setActiveTab:React.Dispatch<React.SetStateAction<string>>})=>{
     const [timeRemaining, setTimeRemaining] = useState({
         days: 5,
         hours: 21,
@@ -51,11 +51,11 @@ const Home=()=>{
       const progressPercentage = (currentProgressSeconds / totalSecondsInSeason) * 100;
     
     return(
-        <div className="blue-bg pt-4 min-h-screen flex flex-col items-center text-white pb-14 min-w-full">
-             <div className="flex flex-col bg-[#0066FF] border border-[#2181FF] shadow-md py-2 rounded-xl items-center justify-center w-[92%]">
+        <div className="blue-bg pt-4 min-h-screen flex flex-col items-center justify-center text-white pb-14 min-w-full">
+             <div className="flex flex-col max-w-md bg-[#0066FF] border border-[#2181FF] shadow-md py-2 rounded-xl items-center justify-center w-[92%]">
                 <h2 className="karmatic-text text-xl">--- SEASON 1 ---</h2>
       
-                <div className="flex flex-col mt-2">
+                <div className="flex flex-col mt-2 w-[90%]">
                     <div className="w-full bg-[#D9D9D9] h-[1.4rem] rounded-sm overflow-hidden">
                     <div 
                         className="bg-orange-400 h-[4rem] transition-all rounded-sm duration-1000 ease-linear"
@@ -67,19 +67,17 @@ const Home=()=>{
                     </div>
                 </div>
             </div>
-            <img src="./home1.jpg" width={'92%'} className="mt-4 rounded-xl"/>
-            <Ranking/>
-            <div className="w-[92%] flex gap-2 mt-7">
-                <div>
+            <img src="./home1.jpg" width={'92%'} className="mt-4 rounded-xl max-w-md"/>
+            <Ranking activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <div className="w-[92%] flex items-center justify-center gap-2 max-w-md">
                 <img src="./home5.png" className="rounded-xl"/>
-                </div>
                 {/* <div className="flex flex-col gap-2">
                     <img src="./home3.jpg" className="rounded-xl"/>
                     <img src="./home4.jpg" className="rounded-xl"/>
                 </div> */}
             </div>
-            <div className="w-[92%] flex flex-col items-center justify-center gap-2 mt-7">
-                <h2 className="karmatic-text text-xl">LIVE ACTIVITY FEED</h2>
+            <div className="w-[92%] flex flex-col items-center justify-center gap-2 mt-7 max-w-md">
+                <h2 className="karmatic-text text-lg w-[90%]">LIVE ACTIVITY FEED</h2>
                 <Updates/>
             </div>
         </div>

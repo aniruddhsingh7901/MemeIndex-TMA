@@ -2,14 +2,9 @@ import { LuTrophy } from "react-icons/lu";
 import { FaFacebookF } from "react-icons/fa";
 import { PiTelegramLogoBold } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
+import Updates from "../Components/Updates";
 
 const Community = () => {
-  const liveUpdates = [
-    { user: '@SerafinMex', action: 'voted for $FLOKI', amount: '1 tgBTC' },
-    { user: '@TrumpKingUSA', action: 'voted for $FLOKI', amount: '8 tgBTC' },
-    { user: '@TrumpKingUSA', action: 'voted for $FLOKI', amount: '1 tgBTC' },
-  ];
-
   return (
     <div className="w-full flex flex-col items-center justify-center max-w-md mx-auto h-auto blue-bg pb-16 ">
       {/* Navigation Header */}
@@ -88,21 +83,7 @@ const Community = () => {
       {/* Live Updates */}
       <div className="mt-6 mx-4 flex flex-col items-center">
         <h2 className="karmatic-text text-white text-2xl mb-4">LIVE UPDATES</h2>
-        
-        <div className=" border border-[#258BF7] rounded-xl">
-          {liveUpdates.map((update, index) => (
-            <div 
-              key={index} 
-              className="p-3 border-b rounded-lg border-b-[#a3acb4] border-dashed" 
-              style={{backgroundColor: '#0069FF'}}
-            >
-              <div className="text-white text-sm">
-                <span className="font-bold">{update.user}</span> {update.action} 
-                <span className="font-bold ml-2">for <span className="text-[#E9821C]">{update.amount}</span> </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Updates/>
       </div>
     </div>
   );

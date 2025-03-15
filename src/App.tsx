@@ -41,8 +41,8 @@ function App() {
     <div className="bg-blue-500 w-[100vw]">
       {/* <Community/> */}
       <Header/>
-      {activeTab === "Home" && <Home />}
-      {activeTab === "Rank" && <Rank />}
+      {activeTab === "Home" && <Home activeTab={activeTab} setActiveTab={setActiveTab}/>}
+      {activeTab === "Rank" && <Rank activeTab={activeTab} setActiveTab={setActiveTab} />}
       {activeTab === "Community" && <Community />}
       {activeTab === "Tasks" && <Tasks />}
       {activeTab === "Profile" && <Profile />}
