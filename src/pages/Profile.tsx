@@ -14,8 +14,9 @@ const Profile: React.FC = () => {
   console.log(userFriendlyAddress, rawAddress);
   return (
 
-   <div className="blue-bg min-h-screen w-full max-w-md mx-auto p-4 pb-16">
+   <div className="blue-bg flex flex-col items-center justify-center min-h-screen w-full max-w-full mx-auto p-4 pb-16">
 
+      <div className='max-w-md'>
       <div className="text-center flex flex-col items-center mb-4 bg-transparent border border-[#2181FF] text-white rounded-lg p-4 flex justify-between items-center transition-all duration-300 ease-in-out">
        <div className="text-center">
          <div className="text-[0.8rem]">Vote balance</div>
@@ -49,6 +50,7 @@ const Profile: React.FC = () => {
           Connect wallet
         </button> */}
            <TonConnectButton />
+      </div>
       </div>
 
     </div>

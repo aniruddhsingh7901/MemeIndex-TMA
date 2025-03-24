@@ -63,7 +63,7 @@ const Home=({activeTab,setActiveTab}:{activeTab:string,setActiveTab:React.Dispat
                     ></div>
                     </div>
                     <div className="flex justify-between text-white m-2">
-                    <span className=" text-[15px]">Time Until The End Of The Season: <span className=" font-bold text-xs"> {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m {timeRemaining.seconds}s </span></span>
+                    <span className=" text-[14px] text-gray-300">Time Until The End Of The Season: <span className="text-white font-bold text-xs"> {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m {timeRemaining.seconds}s </span></span>
                     </div>
                 </div>
             </div>

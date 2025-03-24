@@ -27,7 +27,8 @@ const Tasks: React.FC = () => {
   };
 
   return (
-    <div className="blue-bg min-h-screen w-full max-w-md mx-auto p-4 pb-16">
+    <div className="blue-bg min-h-screen flex flex-col items-center justify-center w-full mx-auto p-4 pb-16">
+      <div className='max-w-md'>
       <div className="text-center mb-6 flex flex-col items-center justify-center">
         <h2 className="karmatic-text text-white text-lg">
           MEME. VOTE. EARN!
@@ -43,7 +44,7 @@ const Tasks: React.FC = () => {
             key={task.id} 
             className={`
               ${task.claimed 
-                ? 'bg-transparent border-2 border-[#2181FF] border-dashed text-[#2181FF] rounded-lg p-4 flex justify-between items-center'
+                ? 'bg-transparent border-2 border-[#6c9ddc] border-dashed text-[#6c9ddc] rounded-lg p-4 flex justify-between items-center'
                 : 'bg-transparent border border-[#2181FF] text-white'}
               rounded-lg p-4 flex justify-between items-center
               transition-all duration-300 ease-in-out
@@ -88,6 +89,7 @@ const Tasks: React.FC = () => {
             </button>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
