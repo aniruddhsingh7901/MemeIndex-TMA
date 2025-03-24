@@ -1,0 +1,29 @@
+feat(ui): enhance Home and Rank pages with animations and mobile optimizations
+
+- Home page:
+  - Add mobile-first responsive design for iPhone 14
+  - Implement floating countdown timer with animations
+  - Add glowing text effects and pulsing buttons
+  - Create staggered animations for content sections
+  - Enhance wallet connection flow with state transitions
+
+- Ranking component:
+  - Add coin icons and animated trend indicators
+  - Implement staggered animations for ranking items
+  - Enhance "To elect" buttons with glow effects
+  - Improve search functionality styling
+  - Add interactive hover effects
+
+- Updates component:
+  - Add real-time updates with simulated activity
+  - Implement slide-in animations for new updates
+  - Create pulsing emoji indicators
+  - Style with glowing borders and pixel aesthetics
+
+- CSS enhancements:
+  - Add 10+ new animation types (shake, bounce, flip, etc.)
+  - Create shadow effects for visual depth
+  - Add mobile-specific media queries
+  - Optimize animations for performance
+
+- Fix all TypeScript errors and improve type safety

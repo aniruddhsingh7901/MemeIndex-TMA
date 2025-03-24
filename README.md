@@ -1,54 +1,133 @@
-# React + TypeScript + Vite
+# MemeIndex Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A vibrant and animated frontend for the MemeIndex Battle Arena, a Telegram Mini App (TMA) for meme coin voting and ranking.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Mobile-first design optimized for iPhone 14 Pro and other mobile devices
+- Rich animations and interactive elements
+- Wallet connection for TON blockchain
+- Live activity feed with real-time updates
+- Achievement system with unlockable badges
+- Ranking system for meme coins
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/memeindex-frontend.git
+cd memeindex-frontend
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Start the development server
+npm run dev
 ```
+
+The development server will be available at http://localhost:5173
+
+### Building for Production
+
+```bash
+# Build the application
+npm run build
+```
+
+The built files will be available in the `dist` directory.
+
+## Deployment
+
+### Automatic Deployment
+
+A deployment script is provided to automatically deploy the application to the server:
+
+```bash
+# Make the script executable (if not already)
+chmod +x deploy.sh
+
+# Run the deployment script
+./deploy.sh
+```
+
+The script will:
+1. Build the application
+2. Create a tarball of the built files
+3. Transfer the tarball to the server
+4. Extract the tarball on the server
+5. Configure Nginx (if not already configured)
+6. Reload Nginx
+
+### Manual Deployment
+
+If you prefer to deploy manually:
+
+1. Build the application:
+   ```bash
+   npm run build
+   ```
+
+2. Transfer the built files to the server:
+   ```bash
+   scp -P 17299 -r dist/* ubuntu@148.76.188.132:~/memeindex-latest/
+   ```
+
+3. Configure Nginx on the server:
+   ```bash
+   # Create Nginx configuration
+   sudo nano /etc/nginx/sites-available/memeindex
+   
+   # Add the following configuration
+   server {
+       listen 80;
+       server_name memeindex.org www.memeindex.org;
+   
+       root /home/ubuntu/memeindex-latest;
+       index index.html;
+   
+       location / {
+           try_files $uri $uri/ /index.html;
+       }
+   
+       # Enable gzip compression
+       gzip on;
+       gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+   }
+   
+   # Create a symbolic link to enable the site
+   sudo ln -s /etc/nginx/sites-available/memeindex /etc/nginx/sites-enabled/
+   
+   # Test Nginx configuration
+   sudo nginx -t
+   
+   # Reload Nginx
+   sudo systemctl reload nginx
+   ```
+
+## Project Structure
+
+- `src/`: Source code
+  - `Components/`: Reusable components
+  - `pages/`: Page components
+  - `assets/`: Static assets
+- `public/`: Public assets
+- `dist/`: Built files (generated)
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- TailwindCSS
+- TON Connect
