@@ -1,11 +1,17 @@
 import { useState } from 'react';
 
 export default function WalletInterface() {
-  const [selectedTab, setSelectedTab] = useState('TON');
   const [voteCount, setVoteCount] = useState(0);
   const [showBuyVotePopup, setShowBuyVotePopup] = useState(false);
   
   const truncatedAddress = "0xCa1e...e094";
+  
+  // Sample values for each token/coin
+  const tokenValues = {
+    MIDAO: "10.5",
+    tgBTC: "0.025",
+    TON: "125.75"
+  };
   
   // Function to handle Buy Vote button click
   const handleBuyVoteClick = () => {
@@ -44,44 +50,28 @@ export default function WalletInterface() {
         </div>
       </div>
       
-      {/* Tabs */}
+      {/* Token Values - Always visible */}
       <div className="grid grid-cols-3 gap-2 mb-4">
-        <button
-          className={`py-3 px-4 rounded-lg font-medium ${
-            selectedTab === 'MIDAO' 
-              ? 'bg-white text-blue-600' 
-              : 'bg-blue-400 text-white'
-          }`}
-          onClick={() => setSelectedTab('MIDAO')}
-        >
-          MIDAO
-        </button>
-        <button
-          className={`py-3 px-4 rounded-lg font-medium ${
-            selectedTab === 'tgBTC' 
-              ? 'bg-white text-blue-600' 
-              : 'bg-blue-400 text-white'
-          }`}
-          onClick={() => setSelectedTab('tgBTC')}
-        >
-          tgBTC
-        </button>
-        <button
-          className={`py-3 px-4 rounded-lg font-medium ${
-            selectedTab === 'TON' 
-              ? 'bg-white text-blue-600' 
-              : 'bg-blue-400 text-white'
-          }`}
-          onClick={() => setSelectedTab('TON')}
-        >
-          TON
-        </button>
+        <div className="bg-blue-400 py-3 px-4 rounded-lg">
+          <div className="text-white font-medium text-center">MIDAO</div>
+          {/* <div className="text-white text-center font-bold">{tokenValues.MIDAO}</div> */}
+        </div>
+        <div className="bg-blue-400 py-3 px-4 rounded-lg">
+          <div className="text-white font-medium text-center">tgBTC</div>
+          {/* <div className="text-white text-center font-bold">{tokenValues.tgBTC}</div> */}
+        </div>
+        <div className="bg-blue-400 py-3 px-4 rounded-lg">
+          <div className="text-white font-medium text-center">TON</div>
+          {/* <div className="text-white text-center font-bold">{tokenValues.TON}</div> */}
+        </div>
       </div>
       
-      {/* Set Vote Count Button */}
-      <button className="w-full bg-blue-400 text-white rounded-lg py-4 text-center font-medium mb-6">
+       {/* Set Vote Count Button - Blue with white text */}
+       <button className="w-full bg-blue-400 text-white rounded-lg py-4 text-center font-medium mb-6 bg-gradient-to-t from-[#0140FF] via-[#0059FF] to-[#0065FF]">
         Set Your Vote Count
       </button>
+     
+      
       
       {/* Down Arrow */}
       <div className="flex justify-center mb-6">
@@ -96,12 +86,16 @@ export default function WalletInterface() {
       </div>
       
       {/* Buy Vote Button */}
-      <button 
-        className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-lg py-4 text-center font-medium"
+      {/* <button 
+        className="w-full  text-white rounded-lg py-4 text-center font-medium"
         onClick={handleBuyVoteClick}
       >
         Buy vote
-      </button>
+      </button> */}
+      <button className="w-full bg-orange-500 py-4 hover:bg-orange-600 text-white py-2 rounded-lg text-sm font-bold bg-gradient-to-b from-[#fea750] via-[#cd853d] to-[#bc6917]" onClick={handleBuyVoteClick}>
+      Buy vote
+                </button>
+                
       
       {/* Buy Vote Popup */}
       {showBuyVotePopup && (
@@ -126,22 +120,20 @@ export default function WalletInterface() {
               </div>
               
               {/* Connect wallet button */}
-              <button 
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-lg py-3 text-center font-medium mb-3"
-                onClick={handleConnectWallet}
-              >
-                Connect new wallet
-              </button>
+              
+              <button className="w-full bg-gradient-to-b from-[#fea750] via-[#cd853d] to-[#bc6917] text-white px-3 py-3 rounded-lg transition-all duration-300 text-xs hover:from-[#F78F27] hover:via-[#a6410f]  hover:to-[#7d2603] font-bold" onClick={handleConnectWallet}>
+              Connect new wallet
+          </button>
               
               {/* Disconnect button */}
-              <div className="text-center">
+              
                 <button 
-                  className="text-red-500 font-medium"
+                  className="w-full text-red-500 font-medium  rounded px-3 py-3 text-center mt-2 font-bold text-xs"
                   onClick={handleDisconnect}
                 >
                   Disconnect
                 </button>
-              </div>
+             
             </div>
           </div>
         </div>
