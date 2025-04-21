@@ -11,54 +11,55 @@ interface NavItemProps {
   onClick: () => void;
 }
 
-const NavBar = ({activeTab,setActiveTab}:{activeTab:string,setActiveTab:React.Dispatch<React.SetStateAction<string>>}) => {
-   // Track active tab
-
+const NavBar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: React.Dispatch<React.SetStateAction<string>> }) => {
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-[#000623] flex items-center border-t border-gray-700">
-      <div className="flex-1">
-        <NavItem
-          icon={<HiOutlineHome />}
-          label="Home"
-          active={activeTab === "Home"}
-          onClick={() => setActiveTab("Home")}
-        />
-      </div>
-      <div className="flex-1">
-        <NavItem
-          icon={<PiRankingBold />}
-          label="Rank"
-          active={activeTab === "Rank"}
-          onClick={() => setActiveTab("Rank")}
-        />
-      </div>
-      <div className="flex-1">
-        <NavItem
-          icon={<FaTasks />}
-          label="Tasks"
-          active={activeTab === "Tasks"}
-          onClick={() => setActiveTab("Tasks")}
-        />
-      </div>
-      <div className="flex-1">
-        <NavItem
-          icon={<FaUsers />}
-          label="Community"
-          active={activeTab === "Community"}
-          onClick={() => setActiveTab("Community")}
-        />
-      </div>
-      <div className="flex-1">
-        <NavItem
-          icon={<FaRegUserCircle />}
-          label="Profile"
-          active={activeTab === "Profile"}
-          onClick={() => setActiveTab("Profile")}
-        />
+    <div className="fixed bottom-0 left-0 w-full z-50 bg-[#000623] border-t border-gray-700">
+      <div className="max-w-md mx-auto w-full flex items-center">
+        <div className="flex-1">
+          <NavItem
+            icon={<HiOutlineHome />}
+            label="Home"
+            active={activeTab === "Home"}
+            onClick={() => setActiveTab("Home")}
+          />
+        </div>
+        <div className="flex-1">
+          <NavItem
+            icon={<PiRankingBold />}
+            label="Rank"
+            active={activeTab === "Rank"}
+            onClick={() => setActiveTab("Rank")}
+          />
+        </div>
+        <div className="flex-1">
+          <NavItem
+            icon={<FaTasks />}
+            label="Tasks"
+            active={activeTab === "Tasks"}
+            onClick={() => setActiveTab("Tasks")}
+          />
+        </div>
+        <div className="flex-1">
+          <NavItem
+            icon={<FaUsers />}
+            label="Community"
+            active={activeTab === "Community"}
+            onClick={() => setActiveTab("Community")}
+          />
+        </div>
+        <div className="flex-1">
+          <NavItem
+            icon={<FaRegUserCircle />}
+            label="Profile"
+            active={activeTab === "Profile"}
+            onClick={() => setActiveTab("Profile")}
+          />
+        </div>
       </div>
     </div>
   );
 };
+
 
 const NavItem: React.FC<NavItemProps> = ({ icon, label, active, onClick }) => {
   return (
