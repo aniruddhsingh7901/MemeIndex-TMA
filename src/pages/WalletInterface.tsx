@@ -54,7 +54,6 @@ export default function WalletInterface() {
       <div className="grid grid-cols-3 gap-2 mb-4">
         <div className="bg-blue-400 py-3 px-4 rounded-lg">
           <div className="text-white font-medium text-center">MIDAO</div>
-          {/* <div className="text-white text-center font-bold">{tokenValues.MIDAO}</div> */}
         </div>
         <div className="bg-blue-400 py-3 px-4 rounded-lg">
           <div className="text-white font-medium text-center">tgBTC</div>
